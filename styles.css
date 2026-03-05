@@ -134,11 +134,6 @@ body::after {
   100% { transform: perspective(500px) rotateX(60deg) translateY(50px); }
 }
 
-@keyframes sunPulse {
-  0%, 100% { transform: translateX(-50%) scale(1); opacity: 0.9; }
-  50% { transform: translateX(-50%) scale(1.05); opacity: 1; }
-}
-
 @keyframes float {
   0%, 100% { transform: translateY(0px); }
   50% { transform: translateY(-15px); }
@@ -377,35 +372,6 @@ body::after {
   animation-delay: var(--delay);
 }
 
-/* Synthwave Sun */
-.hero-sun {
-  position: absolute;
-  bottom: 10%;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 180px;
-  height: 180px;
-  border-radius: 50%;
-  background: linear-gradient(180deg, 
-    #FF2D95 0%, 
-    #FF6B2B 30%, 
-    #FFE600 60%,
-    #FFE600 100%
-  );
-  box-shadow: 
-    0 0 60px rgba(255, 45, 149, 0.6),
-    0 0 120px rgba(255, 107, 43, 0.4),
-    0 0 200px rgba(255, 230, 0, 0.2);
-  animation: sunPulse 4s ease-in-out infinite;
-  z-index: 2;
-  -webkit-mask-image: repeating-linear-gradient(
-    0deg, #000 0px, #000 8px, transparent 8px, transparent 12px
-  );
-  mask-image: repeating-linear-gradient(
-    0deg, #000 0px, #000 8px, transparent 8px, transparent 12px
-  );
-}
-
 /* Synthwave Grid Floor */
 .hero-grid {
   position: absolute;
@@ -473,13 +439,13 @@ body::after {
   margin: 0 auto 1.5rem;
   position: relative;
   animation: logoBreath 4s ease-in-out infinite;
+  mix-blend-mode: screen;
 }
 
 .logo-container img {
   width: 100%;
   height: auto;
   display: block;
-  mix-blend-mode: screen;
   image-rendering: -webkit-optimize-contrast;
 }
 
@@ -1189,7 +1155,6 @@ body::after {
   .coffee-emoji { font-size: 1.3rem; }
   .coffee-name { font-size: 0.55rem; }
 
-  .hero-sun { width: 130px; height: 130px; bottom: 12%; }
   .hero-horizon { bottom: 24%; }
   .hero-mountains { bottom: 22%; height: 70px; }
   .logo-container { width: min(260px, 65vw); margin-bottom: 1rem; }
@@ -1283,7 +1248,6 @@ body::after {
 
 /* Very short phones (landscape-ish, or notch phones) */
 @media (max-height: 650px) {
-  .hero-sun { width: 90px; height: 90px; bottom: 6%; }
   .hero-grid { height: 16%; }
   .hero-horizon { bottom: 14%; }
   .hero-mountains { bottom: 12%; height: 45px; }
@@ -1304,7 +1268,6 @@ body::after {
     grid-template-columns: repeat(3, 1fr);
   }
 
-  .hero-sun { width: 220px; height: 220px; }
 }
 
 /* iOS safe area padding for dock */
