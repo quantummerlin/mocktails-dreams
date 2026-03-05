@@ -67,11 +67,19 @@ body {
 @keyframes logoFloat {
   0%, 100% {
     transform: translateY(0) scale(1);
-    filter: drop-shadow(0 0 20px rgba(255, 45, 85, 0.4)) drop-shadow(0 0 60px rgba(255, 45, 85, 0.15));
+    box-shadow: 
+      0 0 15px rgba(255, 45, 85, 0.4),
+      0 0 40px rgba(255, 45, 85, 0.2),
+      0 0 80px rgba(255, 45, 85, 0.08),
+      inset 0 0 20px rgba(255, 45, 85, 0.05);
   }
   50% {
-    transform: translateY(-8px) scale(1.01);
-    filter: drop-shadow(0 0 30px rgba(255, 45, 85, 0.5)) drop-shadow(0 0 80px rgba(255, 45, 85, 0.2));
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 
+      0 0 20px rgba(255, 45, 85, 0.5),
+      0 0 60px rgba(255, 45, 85, 0.3),
+      0 0 100px rgba(255, 45, 85, 0.12),
+      inset 0 0 30px rgba(255, 45, 85, 0.08);
   }
 }
 
@@ -238,16 +246,20 @@ body {
 }
 
 .logo-container {
-  width: min(320px, 70vw);
+  width: min(240px, 55vw);
+  height: min(240px, 55vw);
   margin: 0 auto 2rem;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid rgba(255, 45, 85, 0.6);
   animation: logoFloat 5s ease-in-out infinite;
-  mix-blend-mode: screen;
 }
 
 .logo-container img {
   width: 100%;
-  height: auto;
+  height: 100%;
   display: block;
+  object-fit: cover;
 }
 
 .hero-tagline {
@@ -785,7 +797,7 @@ body {
   .coffee-card { padding: 12px 6px; }
   .coffee-name { font-size: 0.68rem; }
 
-  .logo-container { width: min(240px, 60vw); margin-bottom: 1.5rem; }
+  .logo-container { width: min(200px, 50vw); height: min(200px, 50vw); margin-bottom: 1.5rem; }
 
   .hero-tagline {
     font-size: 0.6rem;
@@ -864,7 +876,7 @@ body {
 
 /* Very short phones */
 @media (max-height: 650px) {
-  .logo-container { width: min(180px, 50vw); margin-bottom: 1rem; }
+  .logo-container { width: min(150px, 42vw); height: min(150px, 42vw); margin-bottom: 1rem; }
   .hero-tagline { letter-spacing: 2px; font-size: 0.5rem; }
   .hero-sub { font-size: 0.65rem; }
   .hero-cta { padding: 8px 20px; margin-top: 1.2rem; font-size: 0.72rem; }
